@@ -154,7 +154,7 @@ function closePopUp(params) {
 
 function getEveryBookFromStorage(params) {
     books = JSON.parse(localStorage.getItem('books'))
-    if (books.length != null) {
+    if (books != null) {
       books.forEach(element => {
         element.container = createBookContainer(element);
 
