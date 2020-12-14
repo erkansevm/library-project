@@ -154,13 +154,15 @@ function closePopUp(params) {
 
 function getEveryBookFromStorage(params) {
     books = JSON.parse(localStorage.getItem('books'))
-    if (books.length != 0) {
+    if (books.length != null) {
       books.forEach(element => {
         element.container = createBookContainer(element);
 
         mainDiv.insertBefore(element.container,mainDiv.lastElementChild);
     });
     console.log(books);
+    }else{
+      localStorage.setItem('books',JSON.stringify(books));
     }
     
 }
