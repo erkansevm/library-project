@@ -153,7 +153,7 @@ function closePopUp(params) {
 }
 
 function getEveryBookFromStorage(params) {
-    books = JSON.parse(localStorage.getItem('books'))
+    books = JSON.parse(localStorage.getItem('books'));
     if (books != null) {
       books.forEach(element => {
         element.container = createBookContainer(element);
@@ -197,6 +197,14 @@ function populateStorage() {
   console.log(JSON.parse(localStorage.getItem('books')));
 }
 
+function obtenerBooksLocalStorage(){
+  if(!localStorage.getItem("books")){
+     return [];
+  }
+
+  return JSON.parse(localStorage.getItem("books"));
+}
+
 
 
 const button = document.querySelector("#edit-button");
@@ -212,6 +220,7 @@ const statusInput = document.getElementById("status");
 // 0 for add 1 for edit
 let submitValue = 0;
 
+let books = new Array();
 
 if(storageAvailable('sessionStorage')){
   console.log("True");
@@ -219,8 +228,8 @@ if(storageAvailable('sessionStorage')){
   console.log("False");
 }
 
-let books = [];
-getEveryBookFromStorage();
+
+
 
 
 
